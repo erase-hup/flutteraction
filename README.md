@@ -1,18 +1,7 @@
 # Appointment Doctor App
 
-A new Flutter project.
+## 🎨 System Design
+![download](https://github.com/colonal/appointment_doctor_app/assets/64502335/09aa41ab-8c26-4f8d-a7f0-8a0fb7923047)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 
 
