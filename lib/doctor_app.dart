@@ -14,13 +14,15 @@ class DoctorApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        title: "Appointment Doctor",
-        routerConfig: appRouter.router,
-        theme: AppTheme.light,
-        themeMode: ThemeMode.light,
-      ),
+      builder: (context, child) {
+        return MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          title: "Appointment Doctor",
+          routerConfig: appRouter.router,
+          theme: AppTheme.light,
+          themeMode: ThemeMode.light,
+        );
+      },
     );
   }
 }
