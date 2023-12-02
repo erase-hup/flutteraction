@@ -76,7 +76,7 @@ ThemeData lightTheme() {
         disabledBackgroundColor: ColorManager.secondaryColorDark,
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(16),
           // side: const BorderSide(color: ColorManager.backgroundColor),
         ),
       ),
@@ -87,7 +87,7 @@ ThemeData lightTheme() {
       // Bold ---------------------------
       labelLarge: getBoldStyle(
         color: ColorManager.textColor,
-        fontSize: 20.sp,
+        fontSize: 32.sp,
       ),
       labelMedium: getBoldStyle(
         color: ColorManager.textColor,
@@ -116,7 +116,7 @@ ThemeData lightTheme() {
         fontSize: 16.sp,
       ),
       displayMedium: getMediumStyle(
-        color: ColorManager.textColor,
+        color: ColorManager.textColorDark,
         fontSize: 14.sp,
       ),
       displaySmall: getMediumStyle(
@@ -153,33 +153,40 @@ ThemeData lightTheme() {
 
     inputDecorationTheme: InputDecorationTheme(
       prefixIconColor: ColorManager.grey,
+      suffixIconColor: ColorManager.darkBlue,
+      fillColor: ColorManager.grey1,
+      filled: true,
+      isDense: true,
       contentPadding: const EdgeInsets.symmetric(vertical: 17, horizontal: 20),
       floatingLabelStyle:
           getMediumStyle(color: ColorManager.error, fontSize: 14.sp),
-      counterStyle: getMediumStyle(color: Colors.green, fontSize: 14.sp),
-      hintStyle: getMediumStyle(color: ColorManager.hintColor, fontSize: 14.sp),
+      counterStyle:
+          getMediumStyle(color: ColorManager.labelColor, fontSize: 14.sp),
+      hintStyle:
+          getRegularStyle(color: ColorManager.hintColor, fontSize: 14.sp),
       labelStyle:
           getMediumStyle(color: ColorManager.labelColor, fontSize: 14.sp),
       errorStyle: getMediumStyle(color: ColorManager.error),
-      helperStyle: getMediumStyle(color: Colors.amber, fontSize: 14.sp),
+      helperStyle:
+          getMediumStyle(color: ColorManager.labelColor, fontSize: 14.sp),
       enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: ColorManager.grey, width: 1.5),
+        borderSide: BorderSide(color: ColorManager.grey, width: 1.3),
         borderRadius: const BorderRadius.all(Radius.circular(16)),
       ),
       disabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: ColorManager.grey1, width: 1.5),
+        borderSide: BorderSide(color: ColorManager.grey1, width: 1.3),
         borderRadius: const BorderRadius.all(Radius.circular(16)),
       ),
       focusedBorder: const OutlineInputBorder(
-        borderSide: BorderSide(color: ColorManager.primaryColor, width: 1.5),
+        borderSide: BorderSide(color: ColorManager.primaryColor, width: 1.3),
         borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
       errorBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: ColorManager.error, width: 1.5),
+        borderSide: BorderSide(color: ColorManager.error, width: 1.3),
         borderRadius: const BorderRadius.all(Radius.circular(16)),
       ),
       focusedErrorBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: ColorManager.error, width: 1.5),
+        borderSide: BorderSide(color: ColorManager.error, width: 1.3),
         borderRadius: const BorderRadius.all(Radius.circular(16)),
       ),
     ),
