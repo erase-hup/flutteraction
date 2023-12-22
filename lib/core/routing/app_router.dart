@@ -1,8 +1,11 @@
+import 'package:appointment_doctor_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../features/login/ui/screen/login_screen.dart';
 import '../../features/onboarding/onboarding_screen.dart';
+import '../di/dependency_injection.dart';
 import 'routes.dart';
 
 class AppRouter {
@@ -17,9 +20,15 @@ class AppRouter {
         builder: (context, state) => const OnBoardingScreen(),
       ),
       GoRoute(
-        // name: 'login',
         path: Routes.loginScreen,
-        builder: (context, state) => const LoginScreen(),
+        builder: (context, state) => BlocProvider<LoginCubit>(
+          create: (context) => getIt<LoginCubit>(),
+          child: const LoginScreen(),
+        ),
+      ),
+      GoRoute(
+        path: Routes.homeScreen,
+        builder: (context, state) => const Scaffold(),
       ),
     ],
     errorBuilder: (context, state) => const Scaffold(
