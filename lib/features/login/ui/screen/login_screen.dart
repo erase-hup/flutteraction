@@ -1,23 +1,18 @@
 import 'package:appointment_doctor_app/core/theming/app_color.dart';
-import 'package:appointment_doctor_app/core/widget/app_text_form_field.dart';
 import 'package:appointment_doctor_app/features/login/ui/widget/terms_and_conditions_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/widget/app_text_button.dart';
+import '../../data/models/login_request_body.dart';
+import '../../logic/cubit/login_cubit.dart';
 import '../widget/already_have_account_text.dart';
+import '../widget/email_and_password.dart';
+import '../widget/login_bloc_listener.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
-
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  bool isObscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -42,47 +37,26 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: theme.textTheme.bodyMedium,
               ),
               verticalSpacing(36),
-              Form(
-                key: formKey,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const AppTextFormField(hintText: "Email"),
-                    verticalSpacing(20),
-                    AppTextFormField(
-                      hintText: "password",
-                      obscureText: isObscureText,
-                      textInputAction: TextInputAction.done,
-                      suffix: GestureDetector(
-                        onTap: () {
-                          setState(() {
-                            isObscureText = !isObscureText;
-                          });
-                        },
-                        child: Icon(
-                          isObscureText
-                              ? Icons.visibility_off
-                              : Icons.visibility,
-                          size: 27,
-                        ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const EmailAndPassword(),
+                  Align(
+                    alignment: AlignmentDirectional.centerEnd,
+                    child: Text(
+                      "Forgot Password?",
+                      style: theme.textTheme.bodySmall!.copyWith(
+                        color: ColorManager.blue,
                       ),
                     ),
-                    verticalSpacing(20),
-                    Align(
-                      alignment: AlignmentDirectional.centerEnd,
-                      child: Text(
-                        "Forgot Password?",
-                        style: theme.textTheme.bodySmall!.copyWith(
-                          color: ColorManager.blue,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               verticalSpacing(40),
               AppTextButton(
-                onPressed: () {},
+                onPressed: () {
+                  validateThenDoLogin(context);
+                },
                 buttonText: "Login",
                 textStyle: theme.textTheme.displayLarge!.copyWith(
                   color: Colors.white,
@@ -92,10 +66,23 @@ class _LoginScreenState extends State<LoginScreen> {
               const TermsAndConditionsText(),
               verticalSpacing(60),
               const AlreadyHaveAccountText(),
+              const LoginBlocListener(),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void validateThenDoLogin(BuildContext context) {
+    LoginCubit cubit = LoginCubit.get(context);
+    if (cubit.formKey.currentState!.validate()) {
+      cubit.emitLoginState(
+        LoginRequestBody(
+          email: cubit.emailController.text,
+          password: cubit.passwordController.text,
+        ),
+      );
+    }
   }
 }
