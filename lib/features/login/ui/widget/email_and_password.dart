@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/helpers/app_regex.dart';
 import '../../../../core/helpers/spacing.dart';
 import '../../../../core/widget/app_text_form_field.dart';
-import 'password_validations.dart';
+import '../../../../core/widget/password_validations.dart';
 
 class EmailAndPassword extends StatefulWidget {
   const EmailAndPassword({super.key});

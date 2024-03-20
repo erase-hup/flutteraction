@@ -1,4 +1,6 @@
 import 'package:appointment_doctor_app/features/login/logic/cubit/login_cubit.dart';
+import 'package:appointment_doctor_app/features/sign_up/logic/sign_up_cubit.dart';
+import 'package:appointment_doctor_app/features/sign_up/ui/screen/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -29,6 +31,13 @@ class AppRouter {
       GoRoute(
         path: Routes.homeScreen,
         builder: (context, state) => const Scaffold(),
+      ),
+      GoRoute(
+        path: Routes.sigUpScreen,
+        builder: (context, state) => BlocProvider<SignUpCubit>(
+          create: (context) => getIt<SignUpCubit>(),
+          child: const SignUpScreen(),
+        ),
       ),
     ],
     errorBuilder: (context, state) => const Scaffold(
