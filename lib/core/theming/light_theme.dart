@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../constants/styles_manager.dart';
 import 'app_color.dart';
@@ -25,7 +26,7 @@ ThemeData lightTheme() {
     ),
 
     colorScheme: ColorScheme.fromSwatch().copyWith(
-      secondary: ColorManager.lightPrimaryColor,
+      secondary: ColorManager.primaryColor,
       primary: ColorManager.primaryColor,
       background: ColorManager.backgroundColor,
       error: ColorManager.error,
@@ -57,23 +58,26 @@ ThemeData lightTheme() {
     ),
 
     //  button theme
-    buttonTheme: const ButtonThemeData(
-      shape: StadiumBorder(),
+    buttonTheme: ButtonThemeData(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       disabledColor: ColorManager.secondaryColorDark,
       buttonColor: ColorManager.primaryColor,
       splashColor: ColorManager.lightPrimaryColor,
+      focusColor: ColorManager.lightPrimaryColor,
+      textTheme: ButtonTextTheme.primary,
     ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         minimumSize: const Size(double.infinity, 60),
-        textStyle:
-            getRegularStyle(color: ColorManager.secondaryColor, fontSize: 17),
-        backgroundColor: ColorManager.backgroundColor,
+        textStyle: getRegularStyle(
+            color: ColorManager.secondaryColor, fontSize: 17.sp),
+        backgroundColor: ColorManager.primaryColor,
         disabledBackgroundColor: ColorManager.secondaryColorDark,
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-          side: const BorderSide(color: ColorManager.backgroundColor),
+          borderRadius: BorderRadius.circular(16),
+          // side: const BorderSide(color: ColorManager.backgroundColor),
         ),
       ),
     ),
@@ -83,98 +87,106 @@ ThemeData lightTheme() {
       // Bold ---------------------------
       labelLarge: getBoldStyle(
         color: ColorManager.textColor,
-        fontSize: 16,
+        fontSize: 32.sp,
       ),
       labelMedium: getBoldStyle(
         color: ColorManager.textColor,
-        fontSize: 14,
+        fontSize: 18.sp,
       ),
       labelSmall: getBoldStyle(
         color: ColorManager.textColor,
-        fontSize: 12,
+        fontSize: 16.sp,
       ),
       // Semibold ---------------------------
       titleLarge: getSemiBoldStyle(
         color: ColorManager.textColor,
-        fontSize: 20,
+        fontSize: 20.sp,
       ),
       titleMedium: getSemiBoldStyle(
         color: ColorManager.textColor,
-        fontSize: 16,
+        fontSize: 16.sp,
       ),
       titleSmall: getSemiBoldStyle(
         color: ColorManager.textColor,
-        fontSize: 14,
+        fontSize: 14.sp,
       ),
       // Medium ---------------------------
       displayLarge: getMediumStyle(
         color: ColorManager.textColor,
-        fontSize: 16,
+        fontSize: 16.sp,
       ),
       displayMedium: getMediumStyle(
-        color: ColorManager.textColor,
-        fontSize: 14,
+        color: ColorManager.textColorDark,
+        fontSize: 14.sp,
       ),
       displaySmall: getMediumStyle(
         color: ColorManager.textColor,
-        fontSize: 12,
+        fontSize: 12.sp,
       ),
       // Regular --------------------------
       bodyLarge: getRegularStyle(
         color: ColorManager.textColor,
-        fontSize: 16,
+        fontSize: 16.sp,
       ),
       bodyMedium: getRegularStyle(
         color: ColorManager.textColor,
-        fontSize: 14,
+        fontSize: 14.sp,
       ),
       bodySmall: getRegularStyle(
         color: ColorManager.textColor,
-        fontSize: 12,
+        fontSize: 12.sp,
       ),
-      // -----------------------
-      headlineSmall: getRegularStyle(
-        color: ColorManager.grey2,
-        fontSize: 12,
+      // Light -----------------------
+      headlineSmall: getLightStyle(
+        color: ColorManager.textColor,
+        fontSize: 12.sp,
       ),
       headlineMedium: getLightStyle(
-        color: ColorManager.secondaryColor.withOpacity(.8),
-        fontSize: 16,
+        color: ColorManager.textColor,
+        fontSize: 14.sp,
       ),
       headlineLarge: getRegularStyle(
-        color: ColorManager.secondaryColor,
-        fontSize: 20,
+        color: ColorManager.textColor,
+        fontSize: 20.sp,
       ),
     ),
 
     inputDecorationTheme: InputDecorationTheme(
       prefixIconColor: ColorManager.grey,
-      contentPadding: const EdgeInsets.all(20),
+      suffixIconColor: ColorManager.darkBlue,
+      fillColor: ColorManager.grey1,
+      filled: true,
+      isDense: true,
+      contentPadding: const EdgeInsets.symmetric(vertical: 17, horizontal: 20),
       floatingLabelStyle:
-          getMediumStyle(color: ColorManager.error, fontSize: 14),
-      counterStyle: getMediumStyle(color: Colors.green, fontSize: 14),
-      hintStyle: getMediumStyle(color: ColorManager.hintColor, fontSize: 14),
-      labelStyle: getMediumStyle(color: ColorManager.labelColor, fontSize: 14),
+          getMediumStyle(color: ColorManager.error, fontSize: 14.sp),
+      counterStyle:
+          getMediumStyle(color: ColorManager.labelColor, fontSize: 14.sp),
+      hintStyle:
+          getRegularStyle(color: ColorManager.hintColor, fontSize: 14.sp),
+      labelStyle:
+          getMediumStyle(color: ColorManager.labelColor, fontSize: 14.sp),
       errorStyle: getMediumStyle(color: ColorManager.error),
-      helperStyle: getMediumStyle(color: Colors.amber, fontSize: 14),
+      helperStyle:
+          getMediumStyle(color: ColorManager.labelColor, fontSize: 14.sp),
       enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: ColorManager.grey, width: 1.5),
+        borderSide: BorderSide(color: ColorManager.grey, width: 1.3),
         borderRadius: const BorderRadius.all(Radius.circular(16)),
       ),
       disabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: ColorManager.grey1, width: 1.5),
+        borderSide: BorderSide(color: ColorManager.grey1, width: 1.3),
         borderRadius: const BorderRadius.all(Radius.circular(16)),
       ),
       focusedBorder: const OutlineInputBorder(
-        borderSide: BorderSide(color: ColorManager.primaryColor, width: 1.5),
+        borderSide: BorderSide(color: ColorManager.primaryColor, width: 1.3),
         borderRadius: BorderRadius.all(Radius.circular(16)),
       ),
       errorBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: ColorManager.error, width: 1.5),
+        borderSide: BorderSide(color: ColorManager.error, width: 1.3),
         borderRadius: const BorderRadius.all(Radius.circular(16)),
       ),
       focusedErrorBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: ColorManager.error, width: 1.5),
+        borderSide: BorderSide(color: ColorManager.error, width: 1.3),
         borderRadius: const BorderRadius.all(Radius.circular(16)),
       ),
     ),

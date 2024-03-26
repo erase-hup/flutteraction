@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "480093451900",
+    "project_id": "docdoc-app-4e903",
+    "storage_bucket": "docdoc-app-4e903.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480093451900:android:3f2ee7b946a30879557bf9",
+        "android_client_info": {
+          "package_name": "com.example.appointmentDoctorApp.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAf4i5njw4MdLcgWw8oBf1iAnNcDIWVOI0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480093451900:android:b42590c01b397ea2557bf9",
+        "android_client_info": {
+          "package_name": "com.example.appointment_doctor_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAf4i5njw4MdLcgWw8oBf1iAnNcDIWVOI0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480093451900:android:f7b26aeabaa88b9d557bf9",
+        "android_client_info": {
+          "package_name": "com.example.appointment_doctor_app.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAf4i5njw4MdLcgWw8oBf1iAnNcDIWVOI0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
