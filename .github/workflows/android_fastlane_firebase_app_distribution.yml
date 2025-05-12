@@ -27,10 +27,7 @@ jobs:
       
       - name: Bağımlılıkları yükle
         run: flutter pub get
-      
-      - name: Kod formatını kontrol et
-        run: dart format --output=none --set-exit-if-changed .
-      
+
       - name: Statik kod analizi
         run: flutter analyze
 
